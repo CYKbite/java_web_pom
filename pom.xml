@@ -28,6 +28,12 @@
     <artifactId>springboot-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <modules>
+        <module>mall-admin</module>
+        <module>mall-common</module>
+        <module>mall-portal</module>
+    </modules>
+
 
     <properties>
         <java.version>17</java.version>
