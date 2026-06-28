@@ -1,4 +1,4 @@
-package com.situ.mall;
+package com.situ.mall.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
