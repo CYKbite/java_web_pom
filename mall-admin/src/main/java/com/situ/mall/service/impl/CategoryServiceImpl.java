@@ -1,6 +1,6 @@
 package com.situ.mall.service.impl;
 
-import com.situ.mall.pojo.Category;
+import com.situ.mall.pojo.entity.Category;
 import com.situ.mall.mapper.CategoryMapper;
 import com.situ.mall.service.ICategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

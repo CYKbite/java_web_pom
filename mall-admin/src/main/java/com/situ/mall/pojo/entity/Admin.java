@@ -1,10 +1,7 @@
-package com.situ.mall.pojo;
+package com.situ.mall.pojo.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -20,6 +17,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@TableName("`admin`")
+// MyBatis-Plus 自动生成 SQL 时，默认根据 POJO 类名推断数据库表名；
+// 如果实体类上写了 @TableName 注解，就会优先使用 @TableName 指定的表名，而不是继续按类名推断。
 public class Admin implements Serializable {
 
 

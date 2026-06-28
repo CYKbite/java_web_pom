@@ -1,6 +1,6 @@
 package com.situ.mall.service;
 
-import com.situ.mall.pojo.User;
+import com.situ.mall.pojo.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -1,4 +1,4 @@
-package com.situ.mall.pojo;
+package com.situ.mall.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,38 +21,55 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class User implements Serializable {
+public class OrderItem implements Serializable {
 
 
     /**
-     * 用户表id
+     * 订单子表id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    /**
-     * 用户名
-     */
-    private String name;
+    @TableField("user_id")
+    private Integer userId;
+
+    @TableField("order_no")
+    private Long orderNo;
 
     /**
-     * 用户密码，MD5加密
+     * 商品id
      */
-    private String password;
-
-    private String email;
-
-    private String phone;
+    @TableField("product_id")
+    private Integer productId;
 
     /**
-     * 找回密码问题
+     * 商品名称
      */
-    private String question;
+    @TableField("product_name")
+    private String productName;
 
     /**
-     * 找回密码答案
+     * 商品图片地址
      */
-    private String answer;
+    @TableField("product_image")
+    private String productImage;
+
+    /**
+     * 生成订单时的商品单价，单位是元,保留两位小数
+     */
+    @TableField("current_unit_price")
+    private BigDecimal currentUnitPrice;
+
+    /**
+     * 商品数量
+     */
+    private Integer quantity;
+
+    /**
+     * 商品总价,单位是元,保留两位小数
+     */
+    @TableField("total_price")
+    private BigDecimal totalPrice;
 
     /**
      * 状态（1：正常 0：停用）

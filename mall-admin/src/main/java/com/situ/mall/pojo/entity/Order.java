@@ -1,4 +1,4 @@
-package com.situ.mall.pojo;
+package com.situ.mall.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -21,58 +21,66 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class OrderItem implements Serializable {
+public class Order implements Serializable {
 
 
     /**
-     * 订单子表id
+     * 订单号
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-
-    @TableField("user_id")
-    private Integer userId;
-
-    @TableField("order_no")
+    @TableId(value = "order_no", type = IdType.NONE)
     private Long orderNo;
 
     /**
-     * 商品id
+     * 用户id
      */
-    @TableField("product_id")
-    private Integer productId;
+    @TableField("user_id")
+    private Integer userId;
+
+    @TableField("shipping_id")
+    private Integer shippingId;
 
     /**
-     * 商品名称
+     * 实际付款金额,单位是元,保留两位小数
      */
-    @TableField("product_name")
-    private String productName;
+    private BigDecimal payment;
 
     /**
-     * 商品图片地址
+     * 0:货到付款 1：微信 2：支付宝 3：银联
      */
-    @TableField("product_image")
-    private String productImage;
+    @TableField("payment_type")
+    private Integer paymentType;
 
     /**
-     * 生成订单时的商品单价，单位是元,保留两位小数
+     * 运费,单位是元
      */
-    @TableField("current_unit_price")
-    private BigDecimal currentUnitPrice;
+    private Integer postage;
 
     /**
-     * 商品数量
+     * 支付时间
      */
-    private Integer quantity;
+    @TableField("payment_time")
+    private Date paymentTime;
 
     /**
-     * 商品总价,单位是元,保留两位小数
+     * 发货时间
      */
-    @TableField("total_price")
-    private BigDecimal totalPrice;
+    @TableField("send_time")
+    private Date sendTime;
 
     /**
-     * 状态（1：正常 0：停用）
+     * 交易完成时间
+     */
+    @TableField("end_time")
+    private Date endTime;
+
+    /**
+     * 交易关闭时间
+     */
+    @TableField("close_time")
+    private Date closeTime;
+
+    /**
+     * 订单状态:0-已取消-10-未付款，20-已付款，40-已发货，50-交易成功，60-交易关闭
      */
     private Integer status;
 

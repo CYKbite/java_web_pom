@@ -1,4 +1,4 @@
-package com.situ.mall.pojo;
+package com.situ.mall.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -21,66 +21,60 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Order implements Serializable {
+public class Product implements Serializable {
 
 
     /**
-     * 订单号
+     * 商品id
      */
-    @TableId(value = "order_no", type = IdType.NONE)
-    private Long orderNo;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
     /**
-     * 用户id
+     * 分类id,对应category表的主键
      */
-    @TableField("user_id")
-    private Integer userId;
-
-    @TableField("shipping_id")
-    private Integer shippingId;
+    @TableField("category_id")
+    private Integer categoryId;
 
     /**
-     * 实际付款金额,单位是元,保留两位小数
+     * 商品名称
      */
-    private BigDecimal payment;
+    private String name;
 
     /**
-     * 0:货到付款 1：微信 2：支付宝 3：银联
+     * 商品副标题
      */
-    @TableField("payment_type")
-    private Integer paymentType;
+    private String subtitle;
 
     /**
-     * 运费,单位是元
+     * 产品主图,url相对地址
      */
-    private Integer postage;
+    @TableField("main_image")
+    private String mainImage;
 
     /**
-     * 支付时间
+     * 图片地址,json格式,扩展用
      */
-    @TableField("payment_time")
-    private Date paymentTime;
+    @TableField("sub_images")
+    private String subImages;
 
     /**
-     * 发货时间
+     * 商品详情
      */
-    @TableField("send_time")
-    private Date sendTime;
+    private String detail;
 
     /**
-     * 交易完成时间
+     * 价格,单位-元保留两位小数
      */
-    @TableField("end_time")
-    private Date endTime;
+    private BigDecimal price;
 
     /**
-     * 交易关闭时间
+     * 库存数量
      */
-    @TableField("close_time")
-    private Date closeTime;
+    private Integer stock;
 
     /**
-     * 订单状态:0-已取消-10-未付款，20-已付款，40-已发货，50-交易成功，60-交易关闭
+     * 商品状态.1-在售 0-下架
      */
     private Integer status;
 

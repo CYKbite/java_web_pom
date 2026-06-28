@@ -1,4 +1,4 @@
-package com.situ.mall.pojo;
+package com.situ.mall.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,60 +20,41 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Product implements Serializable {
+public class User implements Serializable {
 
 
     /**
-     * 商品id
+     * 用户表id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 分类id,对应category表的主键
-     */
-    @TableField("category_id")
-    private Integer categoryId;
-
-    /**
-     * 商品名称
+     * 用户名
      */
     private String name;
 
     /**
-     * 商品副标题
+     * 用户密码，MD5加密
      */
-    private String subtitle;
+    private String password;
+
+    private String email;
+
+    private String phone;
 
     /**
-     * 产品主图,url相对地址
+     * 找回密码问题
      */
-    @TableField("main_image")
-    private String mainImage;
+    private String question;
 
     /**
-     * 图片地址,json格式,扩展用
+     * 找回密码答案
      */
-    @TableField("sub_images")
-    private String subImages;
+    private String answer;
 
     /**
-     * 商品详情
-     */
-    private String detail;
-
-    /**
-     * 价格,单位-元保留两位小数
-     */
-    private BigDecimal price;
-
-    /**
-     * 库存数量
-     */
-    private Integer stock;
-
-    /**
-     * 商品状态.1-在售 0-下架
+     * 状态（1：正常 0：停用）
      */
     private Integer status;
 

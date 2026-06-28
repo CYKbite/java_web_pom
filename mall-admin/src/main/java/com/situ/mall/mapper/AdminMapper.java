@@ -1,6 +1,6 @@
 package com.situ.mall.mapper;
 
-import com.situ.mall.pojo.Admin;
+import com.situ.mall.pojo.entity.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
