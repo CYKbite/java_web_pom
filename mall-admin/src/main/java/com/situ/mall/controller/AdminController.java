@@ -2,6 +2,7 @@ package com.situ.mall.controller;
 
 
 import com.situ.mall.pojo.entity.Admin;
+import com.situ.mall.pojo.query.AdminQuery;
 import com.situ.mall.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,5 +29,11 @@ public class AdminController {
     public List<Admin> selectall(){
         return iadminService.list();
     }
+
+    @RequestMapping("/list")
+    public List<Admin> list(AdminQuery adminQuery){
+        return iadminService.list(adminQuery);
+    }
+
 }
 
